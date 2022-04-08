@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heropedia/models/heroes_model.dart';
+import 'package:heropedia/screens/hero_details/hero_details_screen.dart';
 import 'package:heropedia/screens/heroes_listing/widgets/hero_item.dart';
 
 class HeroesGrid extends StatelessWidget {
@@ -22,7 +23,14 @@ class HeroesGrid extends StatelessWidget {
               heroId: hero.heroId,
               imageUrl: hero.heroImage,
               heroFullName: hero.heroName,
-              onTapped: () {},
+              onTapped: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HeroDetailsScreen(hero: hero),
+                  ),
+                );
+              },
             ),
           )
           .toList(),
